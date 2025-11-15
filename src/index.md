@@ -5,155 +5,143 @@ toc: false
 <div class="page">
   <div class="map"></div>
   <div class="context">
-    <h1>Notes</h1>
+    <h1>Satellite Projection</h1>
     <p>
-    This is the our idea for a map layout.
-    On the left we will have a main visual changes
-    depending on how what position the scrollable section
-    on the right is (like scrollytelling). If you
-    scroll past the filler text to the next section you
-    can see what a transition would be like. 
+    This is our idea for a map layout.
+    On the left, we will have a main visual that changes
+    depending on the position of the scrollable section on 
+    the right (like scrollytelling). If you scroll past the
+    filler text to the next section, you can see an example
+    of a transition. This is a temporary mapping for the 
+    globe. A more advanced visualization, with actual
+    satellite projections, is on the "Globe Visualization" 
+    page.
     </p>
   <h3> -- filler text -- </h3>
   <p>
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    </p>
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  </p>
 
   <div class="step" data-lon="-100" data-lat="40" data-scale="400"> North America </div>
 
   <hr class="divider">
     
   <p>
-    When getting to a new section the map will move to
+    When reaching a new section, the map will move to
     highlight the relevant countries and satellite info.
-    This will allow the large amount of data we have to
-    be more digestible at any given time.
+    This will make the large amount dataset more digestible 
+    at any given time.
   </p>
 
   <h3> -- filler text -- </h3>
   <p>
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
   </p>
 
   <div class="step" data-lon="10" data-lat="50" data-scale="450"> Europe </div>
 
   <hr class="divider">
 
+  <p>
+    Other mappings will also be included in the right scrollable
+    section of the page, as well as possibly adding the interactive
+    map at the bottom of the page to give users more control over
+    viewing the data.
+  </p>
+
   <h3> -- filler text -- </h3>
   <p>
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
   </p>
 
   <div class="step" data-lon="135" data-lat="-25" data-scale="450"> Australia </div>
@@ -161,40 +149,43 @@ toc: false
   <hr class="divider">
 
   <p>
-    Other aspects of the map can be altered with different
+    Other aspects of the map can be altered with
     transitions as well, like highlighting a country.
-
   </p>
 
   <h3> -- filler text -- </h3>
   <p>
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
   </p>
 
   <div class="step" data-lon="90" data-lat="22" data-scale="350"> Asia </div>
@@ -203,46 +194,37 @@ toc: false
 
   <h3> -- filler text -- </h3>
   <p>
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
   </p>
 
   </div>
