@@ -7,7 +7,15 @@ toc: false
   <div class="context">
     <h1>Notes</h1>
     <p>
-    This is the map layout. iowfe woi fwh ow euwh
+    This is the our idea for a map layout.
+    On the left we will have a main visual changes
+    depending on how what position the scrollable section
+    on the right is (like scrollytelling). If you
+    scroll past the filler text to the next section you
+    can see what a transition would be like. 
+    </p>
+  <h3> -- filler text -- </h3>
+  <p>
     oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
     fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
     uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
@@ -55,35 +63,55 @@ toc: false
     uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
     </p>
 
-  <div class="step" data-lon="-100" data-lat="40" data-scale="220"> North America </div>
+  <div class="step" data-lon="-100" data-lat="40" data-scale="400"> North America </div>
+
+  <hr class="divider">
     
   <p>
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
+    When getting to a new section the map will move to
+    highlight the relevant countries and satellite info.
+    This will allow the large amount of data we have to
+    be more digestible at any given time.
   </p>
 
-  <div class="step" data-lon="10" data-lat="50" data-scale="260"> Europe </div>
+  <h3> -- filler text -- </h3>
+  <p>
+    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
+    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
+    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
+    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
+    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
+    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
+    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
+    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
+    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
+    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
+    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
+    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
+    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
+    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
+    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
+    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
+    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
+    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
+    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
+    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
+    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
+    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
+    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
+    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
+    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
+    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
+    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
+    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
+    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
+  </p>
 
+  <div class="step" data-lon="10" data-lat="50" data-scale="450"> Europe </div>
+
+  <hr class="divider">
+
+  <h3> -- filler text -- </h3>
   <p>
     wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
     oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
@@ -107,10 +135,73 @@ toc: false
     oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
     fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
     uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
+    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
+    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
+    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
+    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
+    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
+    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
+    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
+    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
+    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
+    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
+    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
+    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
+    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
+    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
+    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
+    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
+    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
+    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
+    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
   </p>
 
-  <div class="step" data-lon="90" data-lat="22" data-scale="240"> Asia </div>
+  <div class="step" data-lon="135" data-lat="-25" data-scale="450"> Australia </div>
 
+  <hr class="divider">
+
+  <p>
+    Other aspects of the map can be altered with different
+    transitions as well, like highlighting a country.
+
+  </p>
+
+  <h3> -- filler text -- </h3>
+  <p>
+    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
+    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
+    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
+    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
+    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
+    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
+    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
+    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
+    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
+    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
+    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
+    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
+    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
+    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
+    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
+    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
+    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
+    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
+    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
+    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
+    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
+    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
+    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
+    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
+    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
+    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
+    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
+  </p>
+
+  <div class="step" data-lon="90" data-lat="22" data-scale="350"> Asia </div>
+
+  <hr class="divider">
+
+  <h3> -- filler text -- </h3>
   <p>
     uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
     wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
@@ -140,13 +231,6 @@ toc: false
     wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
     oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
     fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
     fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
     uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
     wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
@@ -161,41 +245,6 @@ toc: false
     oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
   </p>
 
-  <div class="step" data-lon="135" data-lat="-25" data-scale="240"> Australia </div>
-
-  <p>
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    oin iwj eoij wgoiyhr ogij rpqiowhr fouvsiupiu
-    fiuwhge foi gysrhsoiyriybg voeuh rwuihgf  whoe
-    uiwg oey hfoiv hcouwehriuq wreo hqwodu cyweiu w
-    wouef wouey woieu rpiqwr ipwu erowieyut woiueyt 
-    </p>
   </div>
 </div>
 
@@ -203,7 +252,7 @@ toc: false
   /* entire webpage */
 .page {
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 50% 50%;
     height: 100vh; 
 }
 
@@ -236,8 +285,15 @@ toc: false
 
 /* steps for scrolling transtions */
 .step {
-  margin: 2rem;
   padding: 1rem;  
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-left: -1rem;
+  margin-bottom: 0rem;
+}
+
+.divider {
+  margin-top: -1rem;
 }
 
 </style>
@@ -279,8 +335,12 @@ svg.append("path")
   .attr("stroke-width", 0.5)
   .attr("d", path);
 
-svg.append("path")
-  .datum(countries)
+/* all the individual countries */
+svg.append("g")
+  .selectAll("path")
+  .data(countries.features)
+  .join("path")
+  .attr("class", "country")
   .attr("fill", "#ccc")
   .attr("stroke", "#111")
   .attr("stroke-width", 0.5)
@@ -328,6 +388,18 @@ const interaction = new IntersectionObserver((entries) => {
     if (!entry.isIntersecting) return;
 
     const {lon, lat, scale} = entry.target.dataset;
+
+    svg.selectAll(".country")
+      .attr("fill", "#ccc");
+
+    if (entry.target.textContent.trim().includes("Australia")) {
+      svg.selectAll(".country")
+        .filter(d => d.properties.name == "Australia")
+        .transition()
+        .duration(2000)
+        .attr("fill", "purple")
+    }
+
     flyTo({lon: +lon, lat: +lat, scale: +scale});
 
   });
