@@ -55,8 +55,8 @@ title: Interaction
 
 </style>
 
-
 ```js
+
 import * as d3 from "npm:d3"
 import * as topojson from "npm:topojson-client"
 
@@ -81,6 +81,66 @@ const countryCenter = countries.features.map(d => {
     const [lon, lat] = d3.geoCentroid(d);
     return { name: d.properties.name, lon, lat };
 });
+
+
+/* data wrangling */
+
+const input_file = await FileAttachment("./data/info.tsv").text();
+const satellites = d3.tsvParse(input_file);
+
+console.log("Satellites loaded:", satellites.length, "rows");
+console.log("Columns:", satellites.columns);
+console.log("First rows:", satellites.slice(0, 3));
+
+const sat_data = d3.rollups(
+    satellites.filter(i => i["Launch Site"] && i["Launch Site"].trim()),
+    count => count.length,
+    i => i["Launch Site"].trim()
+).sort((a,b) => d3.descending(a[1], b[1]));
+
+console.log("dist launch sites: ", sat_data.length)
+console.table(sat_data.slice(0, 40));
+
+const coord_text = await FileAttachment("./data/coords.tsv").text();
+const launch_sites = d3.tsvParse(coord_text);
+const coord_map = new Map (
+    launch_sites.map(i => [i.Site.trim(), [+i.Longitude, +i.Latitude]])
+)
+
+const data = [];
+for (const i of satellites) {
+    const site = i["Launch Site"] && i["Launch Site"].trim();
+    if (!site) continue;
+    const coord = coord_map.get(site);
+    if (!coord) continue;
+    data.push({...i, coord})
+}
+
+function coord_to_country(lon, lat) {
+    let found = null;
+    for (const x of countries.features) {
+        if  (d3.geoContains(x, [lon, lat])) {
+            found = x.properties.name;
+            break;
+        }
+    }
+    return found;
+}
+
+for (const x of data) {
+    if (!x.coord) continue;
+    const country = coord_to_country(x.coord[0], x.coord[1]);
+    if (country) {
+        x.launch_country = country;
+    }
+}
+
+
+```
+
+
+
+```js
 
 const svg = d3.create("svg")
   .attr("viewBox", `0 0 ${width} ${height}`)
@@ -109,7 +169,6 @@ svg.append("g")
 
 
 mapDiv.appendChild(svg.node());
-
 
 /* transition logic */
 
@@ -253,6 +312,43 @@ sat_selector.on("change", function () {
     }
     highlightSatelliteCountry(value);
 })
+
+/* launch site dots */
+const launches = svg.append("g").attr("class", "launch-site");
+
+function drawLaunchSites(country_name) {
+    /* grabbing launch-site instances */
+    launches.selectAll("*").remove();
+    if (!country_name) return;
+
+    const relevant = data.filter( i => i.launch_country === country_name);
+
+    const site_info = d3.rollups(
+        relevant, 
+        v => v.length, 
+        i => i["Launch Site"]?.trim()
+    );
+
+    const launch_point = site_info.map(([site, count]) => {
+        /* get any instance of coordinates for the launch site */
+        const find_coord = relevant.find(r => r["Launch Site"]?.trim() === site && r.coord);
+
+        if (find_coord) {
+            return {site, count, coord: find_coord.coord };
+        }
+        else {
+            return null;
+        }
+    }).filter(Boolean);
+
+    const rad = d3.scaleSqrt()
+        .domain([1, d3.max(launch_point, d => d.count)])
+        .range([2,10]);
+    
+    launches.selectAll("circle")
+        .ojnfesnosojnvsdjnosvd
+
+}
 
 
 ```
