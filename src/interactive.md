@@ -5,23 +5,38 @@ title: Interaction
 
 <div class="page">
     <h1>Satellite Interaction</h1>
-    <label class="dropdown-area">
-        View Specific Country
-        <select id="selector"></select>
-    </label>
-    <label class="dropdown-area">
-        Show Satellites from
-        <select id="sat_selector"></select>
-    </label>
+    <div class="header">
+        <label class="dropdown-area">
+            <select id="selector"></select>
+        </label>
+        <label class="dropdown-area">
+            <select id="sat_selector"></select>
+        </label>
+    </div>
     <div class="map"></div>
+    <div class="info-panel">
+        <h2 id="country-name"> Choose a Country </h2>
+        <div id="country-stats"></div>
+    </div>
 </div>
 
 <style>
     /* entire webpage */
 .page {
     display: grid;
+    grid-template-rows: min-content min-content 1fr; 
+    grid-template-columns: 3fr 1fr;
     height: 100vh; 
 }
+
+.page > h1 {
+    grid-row: 1;
+    grid-column: 1/3;
+}
+
+.page > .map { grid-row: 3; grid-column: 1 }
+.page > .info-panel { grid-row: 3; grid-column: 2 }
+
 
 /* globe */
 .map {
@@ -52,6 +67,31 @@ title: Interaction
     background: #0e0e0e;
 }
 
+/* right side info */
+.info-panel {
+    padding: 1rem;
+    color: #f1f1f1;
+    background: #444;
+    border-radius: 1rem;
+    margin: 1rem;
+}
+
+/* dropdown pannels */
+.header {
+    grid-row: 2;
+    grid-column: 1 / 3;
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    align-items: center; 
+    padding: 1rem;
+}
+
+.dropdown-area {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
 
 </style>
 
@@ -84,7 +124,6 @@ const countryCenter = countries.features.map(d => {
 
 
 /* data wrangling */
-
 const input_file = await FileAttachment("./data/info.tsv").text();
 const satellites = d3.tsvParse(input_file);
 
@@ -107,13 +146,24 @@ const coord_map = new Map (
     launch_sites.map(i => [i.Site.trim(), [+i.Longitude, +i.Latitude]])
 )
 
+function getOwnerCountry(line) {
+    const temp = line["Country of Operator/Owner"];
+    if (temp) {
+        return temp.trim();
+    }
+    return "Unknown"
+}
+
+/* launch data */
 const data = [];
 for (const i of satellites) {
+    /* site name */
     const site = i["Launch Site"] && i["Launch Site"].trim();
     if (!site) continue;
     const coord = coord_map.get(site);
     if (!coord) continue;
-    data.push({...i, coord})
+    /* add site name, coords, and owner country to launch data */
+    data.push({...i, coord, owner_country: getOwnerCountry(i) })
 }
 
 function coord_to_country(lon, lat) {
@@ -135,10 +185,7 @@ for (const x of data) {
     }
 }
 
-
 ```
-
-
 
 ```js
 
@@ -191,6 +238,11 @@ function flyTo({lon, lat, scale}) {
       projection.rotate(trans_center(t));
       projection.scale(trans_scale(t));
       svg.selectAll("path").attr("d", path);
+      launches.selectAll("circle")
+        .attr("transform", d => {
+            const [x, y] = projection(d.coord);
+            return `translate(${x}, ${y})`;
+            })
     });
 
 }
@@ -198,6 +250,7 @@ function flyTo({lon, lat, scale}) {
 const defaultFill = "#ccc";
 const highlightFill = "#60a5fa";
 
+/* blue shading for viewing country */
 function highlightCountry(country_name) {
     svg.selectAll(".country")
         .transition()
@@ -213,6 +266,8 @@ function highlightCountry(country_name) {
 const sat_stroke = "#b71aa5ff"
 const sat_stroke_width = 3;
 
+/* boarder around countries that satillites are being displayed for */
+/* can be connected to satillite projections */
 function highlightSatelliteCountry(country_name) {
     svg.selectAll(".country")
         .transition()
@@ -229,7 +284,6 @@ function highlightSatelliteCountry(country_name) {
 }
 
 /* arrays for dropdown options */
-
 const country_options = [
     /* default option */
     { label: "Select a Region", view: null },
@@ -246,9 +300,9 @@ const country_options = [
                 scale: projection.scale()
             }
         }))
-
 ];
 
+/* satellite owner dropdown */
 const satellite_options = [
     { label: "Select countries satellites", name: null },
     ...countryCenter
@@ -260,8 +314,7 @@ const satellite_options = [
 ];
 
 
-/* viewing country transition */
-
+/* transitions */
 const selector = d3.select("#selector");
 selector.selectAll("option")
     /* grab array of all countries */
@@ -283,12 +336,21 @@ selector.on("change", function () {
     /* if going back to default option, then do nothing */
     if (!view) {
         highlightCountry(null);
+        drawLaunchSites(null);
+        document.getElementById("country-name").textContent = "Choose a Country";
+        writeCountryStats(null)
         return;
     }
 
     /* call transition helpers with correct country data */
     flyTo({ lon: view.lon, lat: view.lat, scale: view.scale });
+    /* setting info panel text */
+    document.getElementById("country-name").textContent = label;
+    /* country coloring */
     highlightCountry(label);
+    /* launch circles withing countries */
+    drawLaunchSites(label);
+    writeCountryStats(label);
 })
 
 /* countries satellites transition */
@@ -319,10 +381,13 @@ const launches = svg.append("g").attr("class", "launch-site");
 function drawLaunchSites(country_name) {
     /* grabbing launch-site instances */
     launches.selectAll("*").remove();
+    /* if country name not found then just return */
     if (!country_name) return;
 
+    /* get only launch sites in selected country */
     const relevant = data.filter( i => i.launch_country === country_name);
 
+    /* group by launch site and find count (length) of launches */
     const site_info = d3.rollups(
         relevant, 
         v => v.length, 
@@ -341,13 +406,114 @@ function drawLaunchSites(country_name) {
         }
     }).filter(Boolean);
 
+    if (!launch_point.length) {
+        return;
+    }
+
     const rad = d3.scaleSqrt()
         .domain([1, d3.max(launch_point, d => d.count)])
         .range([2,10]);
     
     launches.selectAll("circle")
-        .ojnfesnosojnvsdjnosvd
+        /* set key to site name */
+        .data(launch_point, d => d.site)
+        .join("circle")
+        .attr("transform", d => {
+            const [x, y] = projection(d.coord);
+            return `translate(${x},${y})`
+        })
+        .attr("r", d => rad(d.count))
+        /* style */
+        .attr("fill", "#af3030ff")
+        .attr("fill-opacity", 0.9)
+        .attr("stroke", "#111")
+        .attr("stroke-width", 0.5)
+        /* for hovering over site */
+        .append("title")
+        /* text for hover */
+        .text(d => `${d.site}: ${d.count} launches`)
+}
 
+function writeCountryStats(countryName) {
+    /* right element */
+    const panel = document.getElementById("country-stats");
+
+    /* check that country name exists */
+    if (!countryName) {
+        panel.innerHTML = "";
+        return;
+    }
+
+    const relevant = data.filter(d => d.launch_country === countryName);
+    const tot_launch_count = relevant.length;
+
+    /* total site launch counts */
+    const sites_grouped = d3.rollups(
+        relevant,
+        v => v.length,
+        d => d["Launch Site"]?.trim()
+    )
+    .filter( i => {
+        const site = i[0];
+        if (site && site.trim() !== "") {
+            return true;
+        }
+        else {
+            return false;
+        }})
+    .sort((a, b) => d3.descending(a[1], b[1]));
+
+    /* count for each site */
+    const distinct_sites = sites_grouped.length;
+
+    const sat_owners = sites_grouped.map(input => {
+        const site = input[0];
+        const site_count = input[1];
+
+        const rows = relevant.filter(r => {
+            return r["Launch Site"] && r["Launch Site"].trim() === site;
+        })
+
+        /* names of all the countries that have launched from this site */
+        const owner_names = d3.rollups(
+            rows,
+            v => v.length,
+            r => {
+                if (r.owner_country) {
+                    return r.owner_country;
+                }
+                else {
+                    return "Unknown"
+                }
+            }
+        ).sort((a, b) => d3.descending(a[1], b[1]) );
+
+        const top_owners = owner_names.slice(0, 3);
+        const rem_count = owner_names.length - top_owners.length;
+
+        /* grab lines from data with specific country name */
+        let owners_lines = top_owners.map(input => {
+            const owner = input[0];
+            const count = input[1];
+            return `<li class="owner-line">${owner}: ${count}</li>`;
+        }).join("");
+
+        if (rem_count > 0) {
+            owners_lines += `<li class="owner-line" style="opacity:.75">and ${rem_count} more...</li>`;
+        }
+        
+        return `<li class="site-line">
+                    <strong>${site}</strong>: ${site_count}
+                    <ul class="owners-list">${owners_lines}</ul>
+                </li>`;
+    }).join("");
+
+    /* html for data */
+    panel.innerHTML = `
+        <p><strong>Total launches from this country:</strong> ${tot_launch_count}</p>
+        <p><strong>Distinct launch sites:</strong> ${distinct_sites}</p>
+        ${sat_owners ? `<p><strong>Sites and owners:</strong></p><ul class="sites-list">${sat_owners}</ul>` : ""}
+    `;
 }
 
 
