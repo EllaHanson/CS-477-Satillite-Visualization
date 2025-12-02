@@ -53,7 +53,7 @@ toc: false
     xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
   </p>
 
-  <div class="step" data-lon="-100" data-lat="40" data-scale="400"> North America </div>
+  <div class="step" data-lon="-100" data-lat="40" data-scale="400" data-country="United States of America"> The First Rocket Launches </div>
 
   <hr class="divider">
     
@@ -99,7 +99,7 @@ toc: false
     xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
   </p>
 
-  <div class="step" data-lon="10" data-lat="50" data-scale="450"> Europe </div>
+  <div class="step" data-lon="10" data-lat="50" data-scale="450" data-country="Germany"> 1990's </div>
 
   <hr class="divider">
 
@@ -145,7 +145,7 @@ toc: false
     xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
   </p>
 
-  <div class="step" data-lon="135" data-lat="-25" data-scale="450"> Australia </div>
+  <div class="step" data-lon="135" data-lat="-25" data-scale="450" data-country="Australia"> 2000-2020 </div>
 
   <hr class="divider">
 
@@ -189,7 +189,7 @@ toc: false
     xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
   </p>
 
-  <div class="step" data-lon="90" data-lat="22" data-scale="350"> Asia </div>
+  <div class="step" data-lon="90" data-lat="22" data-scale="350" data-country="India"> 2020 and beyond </div>
 
   <hr class="divider">
 
@@ -283,54 +283,11 @@ toc: false
 
 
 ```js
-import * as d3 from "npm:d3"
-import * as topojson from "npm:topojson-client"
-
-const width = 960;
-const height = 500;
-
-// const projection = d3.geoEquirectangular();
-//const projection = d3.geoNaturalEarth1();
-// const projection = d3.geoEqualEarth();
-// const projection = d3.geoMercator();
-const projection = d3.geoOrthographic().clipAngle(90);
-projection.fitSize([width, height], { type: "Sphere" });
-
-const path = d3.geoPath(projection);
-
-const world = await d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
-const countries = topojson.feature(world, world.objects.countries);
-const country_borders = topojson.mesh(world, world.objects.countries, (a,b) => a !== b);
+import { createSatelliteGlobe } from "./globe.js"
 
 const mapDiv = document.querySelector(".page .map");
 
-const svg = d3.create("svg")
-  .attr("viewBox", `0 0 ${width} ${height}`)
-  .attr("preserveAspectRatio", "xMidYMid meet")
-  .style("width", "100%")
-  .style("height", "100%");
-
-
-svg.append("path")
-  .datum({ type: "Sphere" })
-  .attr("fill", "#555")
-  .attr("stroke", "#111")
-  .attr("stroke-width", 0.5)
-  .attr("d", path);
-
-/* all the individual countries */
-svg.append("g")
-  .selectAll("path")
-  .data(countries.features)
-  .join("path")
-  .attr("class", "country")
-  .attr("fill", "#ccc")
-  .attr("stroke", "#111")
-  .attr("stroke-width", 0.5)
-  .attr("d", path);
-
-
-mapDiv.appendChild(svg.node());
+const globe = await createSatelliteGlobe({ container: mapDiv, FileAttachment })
 
 
 /* transition logic */
@@ -341,49 +298,32 @@ const text = document.querySelector(".context");
 
 console.log("Loaded", steps.length, "steps.");
 
-/* transition */
-function flyTo({lon, lat, scale}) {
-  /* current settings */
-  const startCenter = projection.rotate();
-  const startScale = projection.scale();
-
-  /* smooth transitions */
-  const trans_center = d3.interpolateArray(startCenter, [-lon, -lat, 0]);
-  const trans_scale = d3.interpolateNumber(startScale, scale ?? startScale);
-  const time = 1500;
-
-  d3.select(svg.node())
-    .transition()
-    .duration(time)
-    .ease(d3.easeCubicInOut)
-    .tween("projection", () => t => {
-      projection.rotate(trans_center(t));
-      projection.scale(trans_scale(t));
-      svg.selectAll("path").attr("d", path);
-    });
-
-}
-
 /* watches step elemtents */
 const interaction = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     /* ignore the steps that we're not in */
     if (!entry.isIntersecting) return;
 
-    const {lon, lat, scale} = entry.target.dataset;
+    const { lon, lat, scale, country } = entry.target.dataset
 
-    svg.selectAll(".country")
-      .attr("fill", "#ccc");
-
-    if (entry.target.textContent.trim().includes("Australia")) {
-      svg.selectAll(".country")
-        .filter(d => d.properties.name == "Australia")
-        .transition()
-        .duration(2000)
-        .attr("fill", "purple")
+    if (lon && lat) {
+      globe.flyTo({
+        lon: +lon,
+        lat: +lat,
+        scale: scale ? +scale : undefined
+      })
     }
 
-    flyTo({lon: +lon, lat: +lat, scale: +scale});
+    // if the step specifies a country, drive the map stuff
+    if (country) {
+      globe.highlightCountry(country)
+      globe.drawLaunchSites(country)
+    } else {
+      // if no country on this step, clear sites / highlight
+      globe.highlightCountry(null)
+      globe.drawLaunchSites(null)
+      globe.highlightSatelliteCountry(null)
+    }
 
   });
 
