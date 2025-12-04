@@ -3,7 +3,9 @@ toc: false
 ---
 <h1 class="page-title">Global Satellite Timeline</h1>
 <div class="page">
-  <div class="map"></div>
+
+  <div class="map">
+      <div class="map-label">work</div></div>
   <div class="context">
     <p>
     This is our idea for a map layout.
@@ -210,13 +212,13 @@ toc: false
 
   <div
   class="step"
-  data-lon="135"
-  data-lat="-25"
+  data-lon="-100"
+  data-lat="20"
   data-scale="450"
-  data-country="Australia"
-  data-time="2000-2020"
+  data-country="United States of America" 
+  data-time="2017-2017"
   >
-  date time segement is 2000-20 and country is australia
+  date time segement is 2005 and it is usa v all
 </div>
 
   <hr class="divider">
@@ -299,6 +301,23 @@ toc: false
     background: #ffffff; /* white background */
   }
 
+
+
+/* label floats above the globe, doesn't affect layout */
+.map-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  border-bottom: 1px solid #e5e7eb;
+  background: #ffffff;
+  z-index: 10;
+}
+
   .map svg {
     max-width: 100%;
     max-height: 100%;
@@ -334,17 +353,31 @@ toc: false
 import { createSatelliteGlobe2 } from "./satplot.js";
 
 const mapDiv = document.querySelector(".page .map");
+const labelEl = mapDiv.querySelector(".map-label");
+
 const globe = await createSatelliteGlobe2({ container: mapDiv, FileAttachment });
 
-const { satellites } = globe;
+const { satellites, data } = globe;
 
 
-// map from topojson / HTML country name → possible operatorCountry values in the TSV
+
+
+// Which color to use for each globe country in the orbit view
+const orbitColors = new Map([
+  ["United States of America", "#4000ffff"], 
+  ["China", "#ff0000ff"],                    
+  ["Germany", "#00ff48ff"],                  
+  ["Australia", "#23c7caff"],     
+  ["ALL", "#999999"],              
+]);
+
+// Map from topojson / HTML country name -> operatorCountry values in the data
 const operatorCountryAliases = new Map([
   ["United States of America", ["USA", "United States"]],
-  ["Russia", ["Russian Federation", "USSR"]],
-  // add more if your data uses abbreviations:
-  // ["United Kingdom", ["UK", "U.K.", "Great Britain"]],
+  ["China", ["China", "People's Republic of China"]],
+  ["Germany", ["Germany"]],
+  ["Australia", ["Australia"]],
+  
 ]);
 
 
@@ -359,21 +392,51 @@ function toGlobeCountryName(name) {
   if (!name) return null;
   return globeCountryAliases.get(name) ?? name;
 }
-
 function satellitesForStep(dataset) {
-  let result = satellites;
+  const allSats = satellites;
+  let result = [];
 
-  if (dataset.country) {
-    const topoName = dataset.country; // e.g. "United States of America"
-
-    // operator-country values we accept for this visual country
-    const allowed = operatorCountryAliases.get(topoName) ?? [topoName];
-
-    result = result.filter(d =>
-      allowed.includes(d.operatorCountry)
-    );
+  // 1. which countries’ orbits to show?
+  let topoNames = [];
+  if (dataset.countries) {
+    topoNames = dataset.countries
+      .split(",")
+      .map(s => s.trim())
+      .filter(Boolean);
+  } else if (dataset.country) {
+    topoNames = [dataset.country];
   }
 
+  if (topoNames.length === 0) {
+    // no country filter: start with everything
+    result = allSats.slice();
+  } else {
+    // precompute USA operator codes for exclusion
+    const usaOps = operatorCountryAliases.get("United States of America") ?? ["USA", "United States"];
+
+    for (const topoName of topoNames) {
+      const color = orbitColors.get(topoName) ?? "#ff0000";
+
+      if (topoName === "ALL") {
+        // 🔹 ALL = everyone EXCEPT USA
+        const subset = allSats.filter(d => !usaOps.includes(d.operatorCountry));
+        subset.forEach(d => {
+          d.orbitColor = color;
+        });
+        result.push(...subset);
+      } else {
+        // normal per-country behavior
+        const allowedOps = operatorCountryAliases.get(topoName) ?? [topoName];
+        const subset = allSats.filter(d => allowedOps.includes(d.operatorCountry));
+        subset.forEach(d => {
+          d.orbitColor = color;
+        });
+        result.push(...subset);
+      }
+    }
+  }
+
+  // 2. time filter
   if (dataset.time) {
     const [startStr, endStr] = dataset.time.split("-");
     const startYear = startStr ? +startStr : -Infinity;
@@ -386,6 +449,7 @@ function satellitesForStep(dataset) {
     );
   }
 
+  // 3. purpose filter, if any
   if (dataset.purpose) {
     const wanted = dataset.purpose
       .split(",")
@@ -401,8 +465,9 @@ function satellitesForStep(dataset) {
 }
 
 
-/* all the step elements */
-const steps = document.querySelectorAll(".step");
+
+
+/* all the step elements */const steps = document.querySelectorAll(".step");
 const text = document.querySelector(".context");
 
 const interaction = new IntersectionObserver((entries) => {
@@ -412,7 +477,6 @@ const interaction = new IntersectionObserver((entries) => {
     const ds = entry.target.dataset;
     const { lon, lat, scale, country } = ds;
 
-    // ⚐ read the flag; default to false if not present
     const showLaunches =
       ds.showLaunches === "true" ||
       ds.showLaunches === "on" ||
@@ -431,21 +495,52 @@ const interaction = new IntersectionObserver((entries) => {
       globe.highlightSatelliteCountry(country);
 
       if (showLaunches) {
-        // draw all launch sites in that country
         globe.drawLaunchSites(country);
       } else {
-        // clear any previous launch sites
         globe.drawLaunchSites(null);
       }
     } else {
-      // no country: clear highlights + launch sites
       globe.highlightCountry(null);
       globe.highlightSatelliteCountry(null);
       globe.drawLaunchSites(null);
     }
 
+    // satellites for this step
     const satsToShow = satellitesForStep(ds);
     globe.drawSatellites(satsToShow);
+
+    // 🔹 build label text
+    const pieces = [];
+
+    // country / countries (if you use data-countries, you can surface that too)
+    if (ds.countries) {
+      pieces.push(`Countries: ${ds.countries}`);
+    } else if (country) {
+      pieces.push(`Country: ${country}`);
+    }
+
+    // time range
+    if (ds.time) {
+      pieces.push(`Years: ${ds.time}`);
+    }
+
+    // satellite count
+    pieces.push(`Satellites: ${satsToShow.length}`);
+
+    // launch site count for the highlighted country (if any)
+    if (country && showLaunches) {
+      const relevantLaunches = data.filter(d => d.launch_country === country);
+      const siteCount = new Set(
+        relevantLaunches
+          .map(d => d["Launch Site"] && d["Launch Site"].trim())
+          .filter(Boolean)
+      ).size;
+
+      pieces.push(`Launch sites: ${siteCount}`);
+    }
+
+    // update the label element
+    labelEl.textContent = pieces.join(" • ") || "Global view";
   });
 }, {
   root: text,
@@ -453,5 +548,6 @@ const interaction = new IntersectionObserver((entries) => {
 });
 
 steps.forEach(s => interaction.observe(s));
+
 
 ```

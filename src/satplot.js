@@ -30,6 +30,11 @@ export async function createSatelliteGlobe2({
 
   const parseLaunchDate = d3.timeParse("%m/%d/%y"); // adjust format if needed
 
+
+
+
+
+  
 const satellites = satellitesRaw.map(d => {
   const launchDateStr = d["Date of Launch"];
   const launchDate = launchDateStr ? parseLaunchDate(launchDateStr.trim()) : null;
@@ -342,13 +347,21 @@ function drawSatellites(sats = []) {
       d => d.norad || d.name
     );
 
-  const tracksEnter = tracks.enter()
+    const tracksEnter = tracks.enter()
   .append("path")
   .attr("class", "satellite-track")
   .attr("fill", "none")
-  .attr("stroke", "#ff0000")      // 🔴 red tracks  .attr("stroke-width", 3)
+  .attr("stroke-width", 5)
   .attr("stroke-linecap", "round")
   .attr("stroke-dasharray", "6,12");
+
+tracksEnter.merge(tracks)
+  .attr("stroke", d => d.orbitColor || "#ff0000") // use per-satellite color
+  .attr("d", d => path({
+    type: "LineString",
+    coordinates: d.groundTrack
+  }));
+
 
 
   tracksEnter.merge(tracks)
@@ -368,24 +381,26 @@ function drawSatellites(sats = []) {
       d => d.norad || d.name
     );
 
-  const dotsEnter = dots.enter()
-    .append("circle")
-    .attr("class", "satellite-dot")
-    .attr("r", 3)
-    .attr("fill", "#ffeb3b")
-    .attr("fill-opacity", 0.9)
-    .attr("stroke", "#000")
-    .attr("stroke-width", 0.7);
+  
+const dotsEnter = dots.enter()
+  .append("circle")
+  .attr("class", "satellite-dot")
+  .attr("r", 8)
+  .attr("fill-opacity", 0.9)
+  .attr("stroke", "#000")
+  .attr("stroke-width", 0.7);
 
-  const dotsMerged = dotsEnter.merge(dots)
-    .attr("transform", d => {
-      const coord = getVisibleCoordOnTrack(d);
-      if (!coord) return "translate(-1000,-1000)";
-      const [x, y] = projection(coord);
-      return (isFinite(x) && isFinite(y))
-        ? `translate(${x},${y})`
-        : "translate(-1000,-1000)";
-    });
+const dotsMerged = dotsEnter.merge(dots)
+  .attr("fill", d => d.orbitColor || "#ffeb3b")  // color by orbitColor
+  .attr("transform", d => {
+    const coord = getVisibleCoordOnTrack(d);
+    if (!coord) return "translate(-1000,-1000)";
+    const [x, y] = projection(coord);
+    return (isFinite(x) && isFinite(y))
+      ? `translate(${x},${y})`
+      : "translate(-1000,-1000)";
+  });
+
 
   dots.exit().remove();
 
