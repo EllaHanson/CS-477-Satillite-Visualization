@@ -399,9 +399,9 @@ const interaction = new IntersectionObserver(
         if (showLaunches) {
           let launchCountry;
           if (isAllLaunches) {
-            launchCountry = "ALL";    // show all launch sites
+            launchCountry = "ALL"; // show all launch sites
           } else {
-            launchCountry = country;  // show only that country's sites
+            launchCountry = country; // show only that country's sites
           }
           globe.drawLaunchSites(launchCountry);
         } else {
@@ -434,9 +434,9 @@ const interaction = new IntersectionObserver(
             const colorName = (() => {
               switch (colorHex.toLowerCase()) {
                 case "#4000ffff":
-                  return "red";
-                case "#ff0000ff":
                   return "blue";
+                case "#ff0000ff":
+                  return "red";
                 case "#00ff48ff":
                   return "green";
                 case "#23c7caff":
