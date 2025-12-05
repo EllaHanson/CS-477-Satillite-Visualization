@@ -58,8 +58,8 @@ toc: false
   data-lon="-100" 
   data-lat="40" 
   data-scale="400" 
-  data-country="United States of America"
-  data-time="1980-1989"> is 1980's </div>
+  data-countries="United States of America, China"
+  data-time="2000-2000"> is 1980's </div>
 
   <hr class="divider">
     
@@ -161,9 +161,9 @@ toc: false
   data-lon="-100"
   data-lat="40"
   data-scale="450"
-  data-time="1980-1989"
+  data-time="2000-2000"
   data-show-launches="true"
-  data-country="United States of America">
+  data-countries="United States of America, ALL">
 
   year 2000 for usa
 </div>
@@ -216,6 +216,7 @@ toc: false
   data-lat="20"
   data-scale="450"
   data-country="United States of America" 
+  data-countries="United States of America, China" 
   data-time="2017-2017"
   >
   date time segement is 2005 and it is usa v all
