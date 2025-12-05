@@ -60,6 +60,11 @@ const satellites = satellitesRaw.map(d => {
   };
 });
 
+const allLaunchYears = satellites
+  .map(d => d.launchYear)
+  .filter(y => y != null);
+const globalYearExtent = d3.extent(allLaunchYears);
+
 
 
   const coord_text = await FileAttachment("data/coords.tsv").text();
@@ -184,6 +189,7 @@ svg.append("g")
     .append("div")
     .attr("class", "launch-tooltip")
     .style("position", "absolute")
+    .style("z-index", 9999)
     .style("pointer-events", "none")
     .style("background", "#ffffff")
     .style("border", "1px solid #e5e7eb")
@@ -341,12 +347,35 @@ function getVisibleCoordOnTrack(sat) {
 
     const chart_data = [];
     for (const [category, selected_category] of all_categories) {
-      const info = Array.from(selected_category, ([year, count]) => ({year, count}))
-      .sort((a,b) => a.year - b.year);
+      const [globalStart, globalEnd] = globalYearExtent || d3.extent([...selected_category.keys()]);
 
-      if (info.length) {
-          chart_data.push({category, info})
-        }
+      if (globalStart == null || globalEnd == null) continue;
+
+      const info = d3.range(globalStart, globalEnd + 1).map(year => ({
+        year,
+        count: selected_category.get(year) || 0
+      }));
+      
+      chart_data.push({ category, info });
+
+      if (/cape\s*canaveral/i.test(siteName)) {
+  const debugRows = rows.map(r => ({
+    site: r["Launch Site"],
+    date: r["Date of Launch"],
+    purpose: r["Purpose"]
+  }));
+
+  const debugChartData = chart_data.map(s => ({
+    category: s.category,
+    points: s.info // [{year, count}, ...]
+  }));
+
+  console.group(`Cape Canaveral chart debug: ${siteName}`);
+  console.log("Raw rows (site / date / purpose):", debugRows);
+  console.log("Aggregated chart_data (by purpose & year):", debugChartData);
+  console.log("Global year extent:", globalYearExtent);
+  console.groupEnd();
+}
       
     }
 
@@ -355,9 +384,15 @@ function getVisibleCoordOnTrack(sat) {
       return;
     }
 
-    const width = 220;
-    const height = 80;
+    const width = 200;
+    const height = 250;
     const margin = { top: 10, right: 10, bottom: 10, left: 10 };
+
+    const legendPadding = 22;
+    const legendLineHeight = 12;
+    const legendHeight = chart_data.length * legendLineHeight;
+
+    const plotBottom = height - margin.bottom - legendHeight - legendPadding;
 
     const svg = input_container.append("svg")
       .attr("width", width)
@@ -367,12 +402,12 @@ function getVisibleCoordOnTrack(sat) {
     const allCounts = chart_data.flatMap(s => s.info.map(d => d.count));
 
     const x = d3.scaleLinear()
-      .domain([d3.min(allYears), d3.max(allYears)])
+      .domain(globalYearExtent || [d3.min(allYears), d3.max(allYears)])
       .range([margin.left, width - margin.right]);
 
     const y = d3.scaleLinear()
       .domain([0, (d3.max(allCounts) || 1)]).nice()
-      .range([height - margin.bottom, margin.top]);
+      .range([plotBottom, margin.top]);
 
     const xAxis = d3.axisBottom(x)
       .ticks(4)
@@ -397,6 +432,31 @@ function getVisibleCoordOnTrack(sat) {
       .attr("stroke", s => color(s.category))
       .attr("stroke-width", 1.5)
       .attr("d", s => line(s.info));
+
+
+    const legend = svg.append("g")
+      .attr("class", "orbit-legend")
+      .attr(
+        "transform",
+        `translate(${margin.left}, ${plotBottom + legendPadding})`
+      );
+
+    const legendItem = legend.selectAll("g")
+      .data(chart_data)
+      .join("g")
+      .attr("transform", (d, i) => `translate(0, ${i * legendLineHeight})`);
+
+    legendItem.append("rect")
+      .attr("width", 10)
+      .attr("height", 3)
+      .attr("y", -7)
+      .attr("fill", d => color(d.category));
+
+    legendItem.append("text")
+      .attr("x", 14)
+      .attr("dy", "-2")
+      .style("font-size", "10px")
+      .text(d => d.category);
   }
 
   function showLaunchTooltip(event, site_data) {

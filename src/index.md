@@ -160,7 +160,7 @@ toc: false
   class="step"
   data-lon="-100"
   data-lat="40"
-  data-scale="450"
+  data-scale="500"
   data-time="2000-2000"
   data-show-launches="true"
   data-countries="United States of America, ALL">
@@ -216,7 +216,8 @@ toc: false
   data-lat="20"
   data-scale="450"
   data-country="United States of America" 
-  data-countries="United States of America, China" 
+  data-countries="United States of America, China"
+  data-show-launches="true"
   data-time="2017-2017"
   >
   date time segement is 2005 and it is usa v all
@@ -325,6 +326,7 @@ toc: false
     width: 100%;
     height: auto;
     display: block;
+    z-index: 2;
   }
 
   /* text on the right */
@@ -333,6 +335,8 @@ toc: false
     overflow: auto;
     padding: 2rem;
     background: #ffffff;
+    position: relative;
+    z-index: 1;
   }
 
   /* steps for scrolling transitions */
