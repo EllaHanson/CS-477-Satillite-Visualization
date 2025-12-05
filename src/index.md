@@ -177,6 +177,14 @@ These patterns align closely with documented developments in global communicatio
     color: #000000ff;
 
   }
+    h4{
+    color: #000000ff;
+
+  }
+  h1{
+    color: #000000ff;
+
+  }
 
   /* entire webpage: 2 columns side by side */
   .page {
