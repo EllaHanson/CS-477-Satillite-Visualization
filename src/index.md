@@ -27,7 +27,8 @@ to around 20–30 launches per year by the early 2000s.
   data-lat="40" 
   data-scale="400" 
   data-country="United States of America"
-  data-time="1988-1989"></div>
+  data-time="1988-1989"
+  data-show-launches="true"></div>
 Why did this happen? A key driver of this period was the communications boom. Companies and governments began deploying satellites for television broadcasting and early mobile networks, among other use cases. According to Via Satellite’s (<a href="https://interactive.satellitetoday.com/via-satellite-at-30-the-1990s-and-early-2000s/" target="_blank">Via Satellite at 30: The 1990s and Early 2000s - Via Satellite</a>) retrospective analysis of the 1990s and early 2000s, demand especially surged in Asia, where rapidly developing economies invested heavily in telecommunications infrastructure. Some prolific operators from this period include: Eutelesat (Europe), Inmarsat (UK), AsiaSat (Hong Kong), IntelSat (more global).
 
   <hr class="divider">
