@@ -293,7 +293,7 @@ function getVisibleCoordOnTrack(sat) {
       });
   }
 
-  const sat_stroke = "#613AEA";
+  const sat_stroke = "#222";
   const sat_stroke_width = 3;
 
   function drawChartForSite(siteName, input_container) {
