@@ -497,7 +497,12 @@ function getVisibleCoordOnTrack(sat) {
     launches.selectAll("*").remove();
     if (!country_name) return;
 
-    const relevant = data.filter(i => i.launch_country === country_name);
+    let relevant;
+    if (country_name === "ALL") {
+      relevant = data.filter(i => i.launch_country !== "United States of America");
+    } else {
+      relevant = data.filter(i => i.launch_country === country_name);
+    }
 
     const site_info = d3.rollups(
       relevant,
@@ -520,7 +525,7 @@ function getVisibleCoordOnTrack(sat) {
 
     const rad = d3.scaleSqrt()
       .domain([1, d3.max(launch_point, d => d.count)])
-      .range([2, 10]);
+      .range([4, 10]);
 
     launches.selectAll("circle")
       .data(launch_point, d => d.site)

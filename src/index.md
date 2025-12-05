@@ -88,6 +88,7 @@ A similar trend is visible in the number of satellites sent with a military purp
   data-country="China" 
   data-countries="United States of America, China" 
   data-time="2014-2014"
+  data-show-launches="true"
   >
 </div>
 
@@ -128,12 +129,12 @@ Because of Starlink, annual global launch numbers went from hundreds to thousand
   </p>
 
   <div class="step" 
-  data-lon="-100" 
-  data-lat="40" 
+  data-lon="70"
+  data-lat="30" 
   data-scale="450" 
   data-country="United States of America" 
-  data-time = "2017-2017"></div>
-  <hr class="divider">
+  data-time="2017-2017"
+  data-show-launches="ALL"></div>
 
   <h3> Conclusion </h3>
   <p>
@@ -166,7 +167,7 @@ These patterns align closely with documented developments in global communicatio
 
   .page-title {
     text-align: center;
-    margin: 1rem 0 0.5rem;
+    margin: 1rem 0 0.rem;
     font-size: 2.2rem;
     font-weight: bold;
     color: #000000ff;
@@ -179,7 +180,7 @@ These patterns align closely with documented developments in global communicatio
   /* entire webpage: 2 columns side by side */
   .page {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: 1.3fr 0.7fr;
     min-height: 100vh; /* let it grow, don't force exact height */
   }
 
@@ -377,7 +378,8 @@ const interaction = new IntersectionObserver(
       const showLaunches =
         ds.showLaunches === "true" ||
         ds.showLaunches === "on" ||
-        ds.showLaunches === "1";
+        ds.showLaunches === "1" ||
+        ds.showLaunches === "ALL";
 
       if (lon && lat) {
         globe.flyTo({
@@ -391,8 +393,16 @@ const interaction = new IntersectionObserver(
         globe.highlightCountry(country);
         globe.highlightSatelliteCountry(country);
 
+        const isAllLaunches = ds.showLaunches === "ALL";
+
         if (showLaunches) {
-          globe.drawLaunchSites(country);
+          let launchCountry;
+          if (isAllLaunches) {
+            launchCountry = "ALL";    // show all launch sites
+          } else {
+            launchCountry = country;  // show only that country's sites
+          }
+          globe.drawLaunchSites(launchCountry);
         } else {
           globe.drawLaunchSites(null);
         }
