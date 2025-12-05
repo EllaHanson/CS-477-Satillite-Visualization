@@ -62,7 +62,6 @@ const satellites = satellitesRaw.map(d => {
 
 
 
-
   const coord_text = await FileAttachment("data/coords.tsv").text();
   const launch_sites = d3.tsvParse(coord_text);
   const coord_map = new Map(
@@ -181,6 +180,20 @@ svg.append("g")
 
   container.appendChild(svg.node());
 
+  const hover = d3.select(container)
+    .append("div")
+    .attr("class", "launch-tooltip")
+    .style("position", "absolute")
+    .style("pointer-events", "none")
+    .style("background", "#ffffff")
+    .style("border", "1px solid #e5e7eb")
+    .style("padding", "0.5rem 0.75rem")
+    .style("font", "12px system-ui, -apple-system, BlinkMacSystemFont, sans-serif")
+    .style("border-radius", "4px")
+    .style("box-shadow", "0 2px 8px rgba(0, 0, 0, 0.2)")
+    .style("opacity", 0);
+
+
   // ---- transitions ----
 function flyTo({ lon, lat, scale }) {
   const startCenter = projection.rotate();
@@ -277,6 +290,134 @@ function getVisibleCoordOnTrack(sat) {
   const sat_stroke = "#b71aa5ff";
   const sat_stroke_width = 3;
 
+  function drawChartForSite(siteName, input_container) {
+
+    input_container.selectAll("*").remove();
+
+    const rows = data.filter(row => {
+      const site = row["Launch Site"] && row["Launch Site"].trim();
+      return site === siteName;
+    });
+
+    if (!rows.length) {
+      input_container.append("div").text("No launch data...");
+      return;
+    }
+
+    const all_categories = new Map();
+
+    for (const row of rows) {
+      const date_str = row["Date of Launch"];
+      if (!date_str) continue;
+      const date = parseLaunchDate(date_str.trim());
+      if (!date) continue;
+
+      const year = date.getFullYear();
+
+      let rawPurpose = row["Purpose"];
+      let category
+
+      if (rawPurpose && rawPurpose.trim() !== "") {
+        rawPurpose = rawPurpose.trim();
+        const parts = rawPurpose.split("/");
+        category = parts[0].trim();
+      } else {
+        category = "Other";
+      }
+      
+
+      if (!category) {
+        category = "Other";
+      }
+
+      let selected_category = all_categories.get(category);
+      if (!selected_category) {
+        selected_category = new Map();
+        all_categories.set(category, selected_category);
+      }
+
+      selected_category.set(year, (selected_category.get(year) || 0) + 1);
+    }
+
+    const chart_data = [];
+    for (const [category, selected_category] of all_categories) {
+      const info = Array.from(selected_category, ([year, count]) => ({year, count}))
+      .sort((a,b) => a.year - b.year);
+
+      if (info.length) {
+          chart_data.push({category, info})
+        }
+      
+    }
+
+    if (!chart_data.length) {
+      input_container.append("div").text("no data gotten for site categories");
+      return;
+    }
+
+    const width = 220;
+    const height = 80;
+    const margin = { top: 10, right: 10, bottom: 10, left: 10 };
+
+    const svg = input_container.append("svg")
+      .attr("width", width)
+      .attr("height", height);
+
+    const allYears = chart_data.flatMap(s => s.info.map(d => d.year));
+    const allCounts = chart_data.flatMap(s => s.info.map(d => d.count));
+
+    const x = d3.scaleLinear()
+      .domain([d3.min(allYears), d3.max(allYears)])
+      .range([margin.left, width - margin.right]);
+
+    const y = d3.scaleLinear()
+      .domain([0, (d3.max(allCounts) || 1)]).nice()
+      .range([height - margin.bottom, margin.top]);
+
+    const xAxis = d3.axisBottom(x)
+      .ticks(4)
+      .tickFormat(d3.format("d"));
+
+    const yAxis = d3.axisLeft(y)
+      .ticks(3, "~g");
+
+    const color = d3.scaleOrdinal()
+      .domain(chart_data.map(s => s.category))
+      .range(d3.schemeCategory10);
+
+    const line = d3.line()
+      .x(d => x(d.year))
+      .y(d => y(d.count));
+
+    svg.selectAll(".orbit-series")
+      .data(chart_data)
+      .join("path")
+      .attr("class", "orbit-series")
+      .attr("fill", "none")
+      .attr("stroke", s => color(s.category))
+      .attr("stroke-width", 1.5)
+      .attr("d", s => line(s.info));
+  }
+
+  function showLaunchTooltip(event, site_data) {
+    hover
+      .style("opacity", 1)
+      .html(
+        `<div><strong>${site_data.site}</strong></div>` +
+        `<div>Launches: ${site_data.count}</div>` + 
+        `<div class="launch-chart"></div>`);
+
+    drawChartForSite(site_data.site, hover.select(".launch-chart"));
+    
+    hover
+      .style("left", event.offsetX + 12 + "px")
+      .style("top", event.offsetY + 12 + "px");
+  }
+
+  function hideLaunchTooltip() {
+    hover.style("opacity", 0);
+  }
+
   function highlightSatelliteCountry(country_name) {
     svg.selectAll(".country")
       .transition()
@@ -333,8 +474,15 @@ function getVisibleCoordOnTrack(sat) {
       .attr("fill-opacity", 0.9)
       .attr("stroke", "#111")
       .attr("stroke-width", 0.5)
-      .append("title")
-      .text(d => `${d.site}: ${d.count} launches`);
+      .on("mouseenter", (event, site_data) => showLaunchTooltip(event, site_data))
+      .on("mousemove", (event) => {
+        hover
+          .style("left", event.offsetX + 12 + "px")
+          .style("top", event.offsetY + 12 + "px");
+      })
+      .on("mouseleave", () => {
+        hideLaunchTooltip();
+      });
   }
 
   // ---- NEW: draw satellites (dot + dotted ground track) ----
