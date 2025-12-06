@@ -158,6 +158,12 @@ These patterns align closely with documented developments in global communicatio
 </div>
 
 <style>
+  html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #ffffff !important; /* kill the dark theme bg */
+}
   /* whole document */
   body {
     margin: 0;
